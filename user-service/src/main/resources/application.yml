@@ -1,0 +1,46 @@
+
+server:
+  port: 8080
+spring:
+
+#  profiles:
+#    active: default
+  application:
+    name: user-service
+  config:
+    import: "optional:configserver:"
+  cloud:
+    config:
+#      uri: http://68.183.225.48:8888
+       uri: http://localhost:8888
+    stream:
+      kafka:
+        binder:
+          brokers: 68.183.225.48:9092
+
+    bus:
+      trace:
+        enabled: true
+      refresh:
+        enabled: true
+      env:
+        enabled: true
+  profiles:
+    active: dev
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"
+
+  endpoint:
+    health:
+      show-details: always
+#    refresh:
+#      enabled: false
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8761/eureka/

@@ -1,0 +1,6 @@
+rootProject.name = 'main-service'
+include('user-service')
+include('product-service')
+include('eureka')
+include('config-server')
+include('vault')

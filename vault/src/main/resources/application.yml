@@ -1,0 +1,18 @@
+spring:
+  application:
+    name: vault
+  profiles:
+    active: vault
+  cloud:
+    config:
+      server:
+        vault:
+          backend: secret
+          kv-version: 2
+          host: 68.183.187.158
+          port: 8200
+          authentication: token
+          token: myroot
+          scheme: http
+server:
+  port: 8888
